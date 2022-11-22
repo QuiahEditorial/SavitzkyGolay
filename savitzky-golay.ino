@@ -21,10 +21,6 @@ float SXY;
 float SX2Y;
 float S3=0;
 
-int   m = 5;                                                          // n+1 = m
-float Fi;                                                             // el i-ésimo valor medido
-float Ft;                                                             // el i-ésimo subconjunto ajustado
-
 float I;                                                              // la medición
 float ISG;                                                            // la suavización
 
@@ -40,15 +36,15 @@ S[0] =   m * ( m + 1 ) / 2 ;
 S[1] = ( m * ( m + 1 ) * ( 2 * m + 1 ) ) / 6;
 S[2] = S[0]*S[0] ;
 S[3] = ( 6 * pow(m,5) + 15 * pow(m,4) + 10 * pow(m,3) - m ) / 30;
-for ( i=0; i<m; i++) { Y[i] = analogRead(A0)/204.6; delay(100);}      // se toman m mediciones
+for ( int i=0; i<m; i++) { Y[i] = analogRead(A0); delay(100);}      // se toman m mediciones
 }
 
 void loop()
 {
-I = analogRead(A0)/204.6;
+I = analogRead(A0);
 SG();
-Serial.println(a);  Serial.println(" "); Serial.println(ISG);
-delay(100);
+Serial.print(I); Serial.print(" ");  Serial.println(ISG);
+delay(10);
 }
 
 void SG ()
