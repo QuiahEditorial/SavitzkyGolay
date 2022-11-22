@@ -1,9 +1,9 @@
 // Por Roberto A. Zavala
-// Breve : https://es.overleaf.com/read/bxyszzbykrqx
+// Breve : https://es.overleaf.com/read/pfhcvtsjytbn
 // Libro : https://www.amazon.com.mx/dp/B074TTGLL2
 // 🙏🏼    : DNv7acPAeVBhTXbKv26itJecPG1SPy2o4F
 
-const int N = 9;                                                      // 2n+1 de Savitzky Golay
+const int N = 11;                                                      // 2n+1 de Savitzky Golay
 const int m = N-1;
 const int p = m-1;  
 
@@ -32,11 +32,11 @@ for ( int j=0; j<=m; j++ ) { X [j] = j;}                              // se cons
 for ( int j=0; j<=m; j++ ) { X2[j] = j*j;}
 for ( int j=0; j<=m; j++ ) { X3[j] = j*j*j;}
 for ( int j=0; j<=m; j++ ) { X4[j] = j*j*j*j;}
-S[0] =   m * ( m + 1 ) / 2 ;
-S[1] = ( m * ( m + 1 ) * ( 2 * m + 1 ) ) / 6;
+S[0] =   m * ( m + 1 ) / 2 ;                                          // la suma de n
+S[1] = ( m * ( m + 1 ) * ( 2 * m + 1 ) ) / 6;                         // la suma de n^2
 S[2] = S[0]*S[0] ;
-S[3] = ( 6 * pow(m,5) + 15 * pow(m,4) + 10 * pow(m,3) - m ) / 30;
-for ( int i=0; i<m; i++) { Y[i] = analogRead(A0); delay(100);}      // se toman m mediciones
+S[3] = ( 6 * pow(m,5) + 15 * pow(m,4) + 10 * pow(m,3) - m ) / 30;     // la suma de n^3
+for ( int i=0; i<m; i++) { Y[i] = analogRead(A0); delay(100);}        // se toman m mediciones
 }
 
 void loop()
